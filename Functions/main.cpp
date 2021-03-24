@@ -32,29 +32,22 @@ void main() {
 	/////////////////////////////////////////
 	cout << "Введите элементы массива:" << endl;
 	for (int i = 0; i < 10; i++) {
-		cin >> a[i];}
-	int summ = sum(a);
-	ar(a, summ);
-	/* Не успел доделать макс и мин число, 
-	а так же сортировку, обязательно всё сделаю
-	и буду обновлять дз на гитхабе после каждого
-	выполненного пункта
-
+		cin >> a[i];
+	}
+	//int summ = sum(a);
+	//ar(a, summ);
+	////////////////
 	int p = 0;
-	int n = 0;
 	bool answer = false;
-	while (true) {
-		n = 0;
-		if (answer == true) { break; }
-		else {
-			p++;
-			for (int i = 0; i < 10; i++) {
-				if (p == a[n]) { cout << a[p]; answer = true; }
-				else(n++);
-			}
+	cout << endl << "Вычисление";
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			if (p == a[j]) { cout << a[p]; break; answer = true; }
 		}
-	}*/
+		if (answer == true) { p++;};
+		else { break }
+	}
+		
+	}
+
 			
-	system("PAUSE");
-	
-}
