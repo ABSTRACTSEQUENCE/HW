@@ -10,40 +10,29 @@ void FillRand(float arr[], const int n, int minRand = 0, int maxRand = 100);
 void FillRand(char arr[], const int n, int minRand = 0, int maxRand = 100);
 /////////////////////
 //Print int double float char
-void Print(int arr[], const int n);
-void Print(double arr[], const int n);
-void Print(float arr[], const int n);
-void Print(char arr[], const int n);
+template<typename T>
+void Print(T arr[], const int n);
 ////////////////////
 //Shift int double float char
-void ShiftLeft(int arr[], const int n, const int number_of_shifts);
-void ShiftLeft(double arr[], const int n, const int number_of_shifts);
-void ShiftLeft(float arr[], const int n, const int number_of_shifts);
-void ShiftLeft(char arr[], const int n, const int number_of_shifts);
+template<typename T>
+void ShiftLeft(T arr[], const int n, const int number_of_shifts);
 ///////////////////
 //Sum int double float char
-int Sum(int arr[], const int n);
-double Sum(double arr[], const int n);
-float Sum(float arr[], const int n);
-char Sum(char arr[], const int n);
+template<typename T>
+T Sum(T arr[], const int n);
 //////////////////
 //Avg int double float char
-int Avg(int arr[], const int n);
-double Avg(double arr[], const int n);
-float Avg(float arr[], const int n);
-char Avg(char arr[], const int n);
+template<typename T>
+double Avg(T arr[], const int n);
+
 /////////////////
-//Min int double float char
-int  minValueIn(int arr[], const int n);
-double  minValueIn(double arr[], const int n);
-float  minValueIn(float arr[], const int n);
-char  minValueIn(char arr[], const int n);
+template<typename T>
+T minValueIn(T arr[], const int n);
+
 /////////////////
 //Max int double float char
-int  maxValueIn(int arr[], const int n);
-double  maxValueIn(double arr[], const int n);
-float  maxValueIn(float arr[], const int n);
-char  maxValueIn(char arr[], const int n);
+template<typename T>
+T  maxValueIn(T arr[], const int n);
 ///////////////////////////////////
 //Sort int double float char
 void Sort(int arr[], const int n);
@@ -136,33 +125,10 @@ void FillRand(char arr[], const int n, int minRand, int maxRand) {
 	}
 }
 //Print
-void Print(int arr[], const int n)//Реализация функции или Определение функции (Function definition)
+template<typename T>
+void Print(T arr[], const int n)//Реализация функции или Определение функции (Function definition)
 {
 	//Выводим массив на экран:
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;
-}
-void Print(double arr[], const int n)//Реализация функции или Определение функции (Function definition)
-{
-	//Выводим массив на экран:
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;
-}
-void Print(float arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;
-}
-void Print(char arr[], const int n) {
 	for (int i = 0; i < n; i++)
 	{
 		cout << arr[i] << tab;
@@ -170,11 +136,12 @@ void Print(char arr[], const int n) {
 	cout << endl;
 }
 //Shift
-void ShiftLeft(int arr[], const int n, const int number_of_shifts)	//Сдвигает массивна заданное число элементов
+template<typename T>
+void ShiftLeft(T arr[], const int n, const int number_of_shifts)	//Сдвигает массивна заданное число элементов
 {
 	for (int i = 0; i < number_of_shifts; i++)	//Этот цикл сдвигает массив на number_of_shifts элементов
 	{
-		int buffer = arr[0];
+		T buffer = arr[0];
 		for (int j = 0; j < n; j++)
 		{
 			arr[j] = arr[j + 1];
@@ -182,170 +149,46 @@ void ShiftLeft(int arr[], const int n, const int number_of_shifts)	//Сдвиг�
 		arr[n - 1] = buffer;
 	}
 }
-void ShiftLeft(double arr[], const int n, const int number_of_shifts)	//Сдвигает массивна заданное число элементов
+
+template<typename T>
+T Sum(T arr[], const int n)
 {
-	for (int i = 0; i < number_of_shifts; i++)	//Этот цикл сдвигает массив на number_of_shifts элементов
-	{
-		double buffer = arr[0];
-		for (int j = 0; j < n; j++)
-		{
-			arr[j] = arr[j + 1];
-		}
-		arr[n - 1] = buffer;
-	}
-}
-void ShiftLeft(float arr[], const int n, const int number_of_shifts)
-{
-	for (int i = 0; i < number_of_shifts; i++)	//Этот цикл сдвигает массив на number_of_shifts элементов
-	{
-		float buffer = arr[0];
-		for (int j = 0; j < n; j++)
-		{
-			arr[j] = arr[j + 1];
-		}
-		arr[n - 1] = buffer;
-	}
-}
-void ShiftLeft(char arr[], const int n, const int number_of_shifts)
-{
-	for (int i = 0; i < number_of_shifts; i++)	//Этот цикл сдвигает массив на number_of_shifts элементов
-	{
-		char buffer = arr[0];
-		for (int j = 0; j < n; j++)
-		{
-			arr[j] = arr[j + 1];
-		}
-		arr[n - 1] = buffer;
-	}
-}
-//Sum
-int Sum(int arr[], const int n)
-{
-	int sum = 0;
+	T sum = 0;
 	for (int i = 0; i < n; i++)
 	{
 		sum += arr[i];
 	}
 	return sum;
 }
-double Sum(double arr[], const int n)
-{
-	double sum = 0;
-	for (int i = 0; i < n; i++)
-	{
-		sum += arr[i];
-	}
-	return sum;
-}
-float Sum(float arr[], const int n)
-{
-	float sum = 0;
-	for (int i = 0; i < n; i++)
-	{
-		sum += arr[i];
-	}
-	return sum;
-}
-char Sum(char arr[], const int n)
-{
-	char sum = 0;
-	for (int i = 0; i < n; i++)
-	{
-		sum += arr[i];
-	}
-	return sum;
-}
-//Avg
-int Avg(int arr[], const int n)
-{
-	return (int)Sum(arr, n) / n;
-}
-double Avg(double arr[], const int n)
+
+template<typename T>
+double Avg(T arr[], const int n)
 {
 	return (double)Sum(arr, n) / n;
 }
-float Avg(float arr[], const int n)
+
+template<typename T>
+T  minValueIn(T arr[], const int n)
 {
-	return (float)Sum(arr, n) / n;
-}
-char Avg(char arr[], const int n)
-{
-	return (char)Sum(arr, n) / n;
-}
-//Min
-int  minValueIn(int arr[], const int n)
-{
-	int min = arr[0];
+	T min = arr[0];
 	for (int i = 0; i < n; i++)
 	{
 		if (arr[i] < min)min = arr[i];
 	}
 	return min;
 }
-double  minValueIn(double arr[], const int n)
+
+template<typename T>
+T  maxValueIn(T arr[], const int n)
 {
-	double min = arr[0];
-	for (int i = 0; i < n; i++)
-	{
-		if (arr[i] < min)min = arr[i];
-	}
-	return min;
-}
-float  minValueIn(float arr[], const int n)
-{
-	float min = arr[0];
-	for (int i = 0; i < n; i++)
-	{
-		if (arr[i] < min)min = arr[i];
-	}
-	return min;
-}
-char  minValueIn(char arr[], const int n)
-{
-	char min = arr[0];
-	for (int i = 0; i < n; i++)
-	{
-		if (arr[i] < min)min = arr[i];
-	}
-	return min;
-}
-//Max
-int  maxValueIn(int arr[], const int n)
-{
-	int max = arr[0];
+	T max = arr[0];
 	for (int i = 0; i < n; i++)
 	{
 		if (arr[i] > max) max = arr[i];
 	}
 	return max;
 }
-double maxValueIn(double arr[], const int n)
-{
-	double max = arr[0];
-	for (int i = 0; i < n; i++)
-	{
-		if (arr[i] > max) max = arr[i];
-	}
-	return max;
-}
-float maxValueIn(float arr[], const int n)
-{
-	float max = arr[0];
-	for (int i = 0; i < n; i++)
-	{
-		if (arr[i] > max) max = arr[i];
-	}
-	return max;
-}
-char  maxValueIn(char arr[], const int n)
-{
-	char max = arr[0];
-	for (int i = 0; i < n; i++)
-	{
-		if (arr[i] > max) max = arr[i];
-	}
-	return max;
-}
+
 //Sort
 void Sort(int arr[], const int n)
 {
