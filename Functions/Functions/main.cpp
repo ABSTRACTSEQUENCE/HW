@@ -1,11 +1,6 @@
 ﻿#include<iostream>
 #include<ctime>
 using namespace std;
-//Прототипы  => *.h  - файл
-//Реализации => *.cpp - файл
-//Принимаемые/Передаваемые параметры
-//int add(int a=0, int b, int c=0);
-
 #define tab "\t"
 void UniqueRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
 //FillRand int double float char
@@ -15,8 +10,8 @@ void FillRand(float arr[], const int n, int minRand = 0, int maxRand = 100);
 void FillRand(char arr[], const int n, int minRand = 0, int maxRand = 100);
 /////////////////////
 //Print int double float char
-void Print(int arr[], const int n);//Прототип функции или Объявление функции (Function declaration)
-void Print(double arr[], const int n);//Прототип функции или Объявление функции (Function declaration)
+void Print(int arr[], const int n);
+void Print(double arr[], const int n);
 void Print(float arr[], const int n);
 void Print(char arr[], const int n);
 ////////////////////
@@ -59,51 +54,28 @@ void Sort(char arr[], const int n);
 void main()
 {
 	setlocale(LC_ALL, "");
-	cout << "Hello functions!" << endl;
 	const int n = 5;
 	int arr[n];
-	cout << "Рандом "; UniqueRand(arr, n);
-	Print(arr, n);
-	//Заполняем массив случайными числами:
-	//for (int i = 0; i < n; i++)
-	//{
-	//	arr[i] = rand();
-	//	//Функция rand() возвращает псевдослучайное число в диапазоне от 0 до 32 767.
-	//}
 	FillRand(arr, n, 400, 500);
-	//Выводим массив на экран:
-	/*for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;*/
-	Print(arr, n);//Вызов функции (Function call) - исползование написанной ранее функции.
-	/*cout << "Сумма элементов массива:" << Sum(arr, n) << endl;
+	cout << "Массив: "; Print(arr, n); cout << endl;
+	cout << "Сумма элементов массива:" << Sum(arr, n) << endl;
 	cout << "Среднее арифметическое: " << Avg(arr, n) << endl;
 	cout << "Минимальное значение в массиве: " << minValueIn(arr, n) << endl;
 	cout << "Максмальное значение в массиве: " << maxValueIn(arr, n) << endl;
 	cout << "Отсортированный массив: " << endl;
 	Sort(arr, n);
 	Print(arr, n);
-	//Сдвиг массива на заданное число элементов:
 	int number_of_shifts;
 	cout << "Введите количество сдвигов: "; cin >> number_of_shifts;
 	ShiftLeft(arr, n, number_of_shifts);
-	//Выводим сдвинутого массив на экран:
-	/*for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;*/
 	Print(arr, n);
 
-	//////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////   2  //////////////////////////////////
 	cout << "\n Второй массив:" << endl;
 	const int m = 8;
 	double brr[m];
 	FillRand(brr, m, 200, 300);
 	Print(brr, m);
-	int number_of_shifts;
 	cout << "Введите количество сдвигов: "; cin >> number_of_shifts; cout << endl;
 	ShiftLeft(brr, m, number_of_shifts);
 	Print(brr, m);
@@ -184,13 +156,13 @@ void Print(double arr[], const int n)//Реализация функции ил�
 }
 void Print(float arr[], const int n)
 {
-	for (int i = 0; i < n; i++) 
+	for (int i = 0; i < n; i++)
 	{
 		cout << arr[i] << tab;
 	}
 	cout << endl;
 }
-void Print(char arr[], const int n){
+void Print(char arr[], const int n) {
 	for (int i = 0; i < n; i++)
 	{
 		cout << arr[i] << tab;
@@ -225,16 +197,16 @@ void ShiftLeft(double arr[], const int n, const int number_of_shifts)	//Сдви
 void ShiftLeft(float arr[], const int n, const int number_of_shifts)
 {
 	for (int i = 0; i < number_of_shifts; i++)	//Этот цикл сдвигает массив на number_of_shifts элементов
+	{
+		float buffer = arr[0];
+		for (int j = 0; j < n; j++)
 		{
-			float buffer = arr[0];
-			for (int j = 0; j < n; j++)
-			{
-				arr[j] = arr[j + 1];
-			}
-			arr[n - 1] = buffer;
+			arr[j] = arr[j + 1];
 		}
+		arr[n - 1] = buffer;
+	}
 }
-void ShiftLeft(char arr[], const int n, const int number_of_shifts) 
+void ShiftLeft(char arr[], const int n, const int number_of_shifts)
 {
 	for (int i = 0; i < number_of_shifts; i++)	//Этот цикл сдвигает массив на number_of_shifts элементов
 	{
@@ -343,10 +315,7 @@ int  maxValueIn(int arr[], const int n)
 	int max = arr[0];
 	for (int i = 0; i < n; i++)
 	{
-		if (arr[i] > arr[i + 1])
-		{
-			max = arr[i];
-		}
+		if (arr[i] > max) max = arr[i];
 	}
 	return max;
 }
@@ -355,10 +324,7 @@ double maxValueIn(double arr[], const int n)
 	double max = arr[0];
 	for (int i = 0; i < n; i++)
 	{
-		if(max < arr[i])
-		{
-			max = arr[i];
-		}
+		if (arr[i] > max) max = arr[i];
 	}
 	return max;
 }
@@ -367,10 +333,7 @@ float maxValueIn(float arr[], const int n)
 	float max = arr[0];
 	for (int i = 0; i < n; i++)
 	{
-		if (max < arr[i])
-		{
-			max = arr[i];
-		}
+		if (arr[i] > max) max = arr[i];
 	}
 	return max;
 }
@@ -379,10 +342,7 @@ char  maxValueIn(char arr[], const int n)
 	char max = arr[0];
 	for (int i = 0; i < n; i++)
 	{
-		if (max < arr[i])
-		{
-			max = arr[i];
-		}
+		if (arr[i] > max) max = arr[i];
 	}
 	return max;
 }
@@ -410,7 +370,7 @@ void Sort(double arr[], const int n)
 	{
 		for (int j = i + 1; j < n; j++)
 		{
-			
+
 			if (arr[j] < arr[i])
 			{
 				double buffer = arr[i];
