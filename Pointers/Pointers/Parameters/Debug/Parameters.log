@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\PaShKeK\Desktop\C++\Pointers\Pointers\Parameters\main.cpp(5,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+  Parameters.vcxproj -> C:\Users\PaShKeK\Desktop\C++\Pointers\Pointers\Debug\Parameters.exe

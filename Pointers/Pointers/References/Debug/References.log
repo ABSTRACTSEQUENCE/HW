@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\PaShKeK\Desktop\C++\Pointers\Pointers\References\main.cpp(5,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+C:\Users\PaShKeK\Desktop\C++\Pointers\Pointers\References\main.cpp(10,4): warning C4552: "+": результат выражения не используется
+  References.vcxproj -> C:\Users\PaShKeK\Desktop\C++\Pointers\Pointers\Debug\References.exe

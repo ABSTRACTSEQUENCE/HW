@@ -1,0 +1,2 @@
+﻿main.obj : error LNK2019: ссылка на неразрешенный внешний символ "int * __cdecl insert(int * const,int &,int,int)" (?insert@@YAPAHQAHAAHHH@Z) в функции _main.
+C:\Users\PaShKeK\Desktop\C++\Pointers\Pointers\Debug\Dynamic memory.exe : fatal error LNK1120: неразрешенных внешних элементов: 1

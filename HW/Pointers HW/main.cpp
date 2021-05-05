@@ -6,28 +6,45 @@ using namespace std;
 void main()
 {
 	setlocale(LC_ALL, "");
+	int odd_size = 0;	
+	int even_size = 0;
 	const int SIZE = 5;
-	int size_even = 0;
-	int size_odd = 0;
-	int* even = new int[size_even];
-	int* odd = new int[size_odd];
+	int even_count = 0;
+	int odd_count = 0;
+	int* even = new int[even_size];
+	int* odd = new int[odd_size];
 	int arr[SIZE];
 	rand(arr, SIZE);
 	cout << "Исходный размер массива: "; print(arr, SIZE); cout  << endl;
-	//sort(arr, even, odd, SIZE, size_even, size_odd);
+	for (int i = 0; i < SIZE; i++) 
+	{
+		if (arr[i] % 2 == 0)
+		{
+			even_size++;
+		}
+		else(odd_size++);
+	}
+	cout << "\nEven: " << even_size;
+	cout << "\nOdd: " << odd_size;
+	//even
 	for (int i = 0; i < SIZE; i++)
 	{
-		if (arr[i] % 2 != 0)
+		if (arr[i] % 2 == 0)
 		{
-			size_odd++;
-			odd[i] = arr[i];
-		}
-		else
-		{
-			size_even++;
-			even[i] = arr[i];
+			even[even_count] = arr[i];
+			even_count++;
 		}
 	}
-	cout << "\nЧётные числа из массива: "; print(even, size_even);
-	cout << "\nНечётные числа из массива: "; print(odd, size_odd);
-}
+	//odd
+	for (int i = 0; i < SIZE; i++)
+	{		
+		if (arr[i] % 2 != 0)
+		{
+			odd[odd_count] = arr[i];
+			odd_count++;
+		}
+	}
+
+	cout << "\nЧётные числа из массива: "; print(even, even_size);
+	cout << "\nНечётные числа из массива: "; print(odd, odd_size);
+} 

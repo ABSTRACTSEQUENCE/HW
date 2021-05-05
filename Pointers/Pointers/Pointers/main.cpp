@@ -1,5 +1,5 @@
-#include <iostream>
 using namespace std;
+#include<iostream>
 //#define POINTERS_BASICS
 //#define POINTER_AND_ARRAYS
 void main() 
@@ -38,4 +38,5 @@ void main()
 	{
 		cout << arr[i] << "\t";
 	}
-}	
+} 
+//прошлый урок
