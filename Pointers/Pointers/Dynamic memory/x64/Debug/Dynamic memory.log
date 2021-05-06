@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\PaShKeK\Desktop\C++\Pointers\Pointers\Dynamic memory\main.cpp(13,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+C:\Users\PaShKeK\Desktop\C++\Pointers\Pointers\Dynamic memory\main.cpp(157,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  Dynamic memory.vcxproj -> C:\Users\PaShKeK\Desktop\C++\Pointers\Pointers\x64\Debug\Dynamic memory.exe
